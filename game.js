@@ -19,8 +19,49 @@ inp.forEach((input, index) => {
 
     });
 
+
+    input.addEventListener("keydown",function(dets){
+       if(dets.key==="Enter"){
+        mainalgo();
+       }
+    })
+
     
 });
+
+
+function mainalgo(){
+
+    let result=""
+
+    inp.forEach((input,index)=>{
+        result+=input.value.toUpperCase();
+    });
+
+    if(result.length!==6){
+        return;
+    }
+
+
+    inp.forEach((input,index)=>{
+        let letter=input.value.toUpperCase();
+
+        if(letter==word[index]){
+            input.classList.add("green");
+        }
+
+        else if(word.includes(letter)){
+            input.classList.add("yellow")
+        }
+        else{
+            input.classList.add("brown");
+        }
+    });
+
+    if(result===word.toUpperCase()){
+        console.log("You Won!");
+    }
+}
 
 // function backspace(dets.key){
 
@@ -38,13 +79,13 @@ async function getWord(){
     let data=await response.json();
    
     
-    word=data[0]
+    word=data[0].toUpperCase();
     console.log(word);
     let cindex=word.length;
 
 let answer=word.toUpperCase();
  inp.forEach((input,index)=>{
-    if(input.value.toUpperCase===answer[index]){
+    if(input.value.toUpperCase()===answer[index]){
         console.log("correct word")
         currindex++;
     }

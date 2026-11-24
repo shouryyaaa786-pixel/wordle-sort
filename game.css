@@ -1,3 +1,14 @@
- input{
+.green{
+    background-color: green;
+}
+.yellow{
+    background-color: yellow;
+}
+.brown{
+    background-color: brown;
+}
+
+input{
     width: 40px;
+    
  }
